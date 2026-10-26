@@ -19,7 +19,7 @@ module AsciicrystalDiagram
     def process(parent : Asciicrystal::AbstractBlock, reader : Asciicrystal::Reader, attributes : Hash(String, String)) : Asciicrystal::AbstractBlock?
       doc = parent.document
       source = reader.source_lines.join("\n")
-      return nil if source.strip.empty?
+      return if source.strip.empty?
 
       # Determine output format: attribute on block, or document attribute, or default svg
       format = attributes["format"]? ||
